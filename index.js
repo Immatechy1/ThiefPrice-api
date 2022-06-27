@@ -12,6 +12,10 @@ mongoose
         console.log(err);
     });
 
+app.get("/pr", ()=> {
+    console.log("test is successfull!")
+});
+
 
 app.listen(process.env.PORT || 5000, () => {
     console.log("Backend server is running!");
