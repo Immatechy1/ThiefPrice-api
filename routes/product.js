@@ -5,13 +5,12 @@ const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = requir
 const router = require("express").Router();
 
 //CREATE
-
-router.post("/", verifyTokenAndAdmin, async (req,res)=>{
+router.post("/",  async (req,res)=>{
     const newProduct = new Product(req.body)
 
     try{
         const savedProduct = await newProduct.save();
-        res.status(500).json(savedProduct  );
+        res.status(200).json(savedProduct  );
     }catch(err){
         res.status(500).json(err);
     };
@@ -48,6 +47,7 @@ router.delete("/:id", verifyTokenAndAdmin, async(req, res) =>{
 //GET PRODUCT
 router.get("/find/:id", async(req, res) =>{
     try{
+        console.log(req.params.id)
         const product = await Product.findByIdAndUpdate(req.params.id);
         res.status(200).json(product);
     }catch(err){
