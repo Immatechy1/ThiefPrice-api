@@ -13,7 +13,7 @@ router.post("/", verifyToken, async (req,res)=>{
 
     try{
         const savedOrder = await newOrder.save();
-        res.status(500).json(savedOrder);
+        res.status(200).json(savedOrder);
     }catch(err){
         res.status(500).json(err);
     };
