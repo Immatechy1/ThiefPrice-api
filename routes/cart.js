@@ -5,8 +5,6 @@ const {
     verifyTokenAndAdmin 
 } = require("./verifyToken");
 
-
-
 const router = require("express").Router();
 
 //CREATE
