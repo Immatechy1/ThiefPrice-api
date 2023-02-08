@@ -18,7 +18,7 @@ router.post("/",  async (req,res)=>{
 
 
 // //UPDATE
-router.put("/:id", verifyTokenAndAdmin, async(req, res) => {
+router.put("/:id",  async(req, res) => {
     try{
         const updatedProduct = await Product.findByIdAndUpdate(
             req.params.id, 
@@ -56,7 +56,7 @@ router.get("/find/:id", async(req, res) =>{
 });
 
 //GET ALL PRODUCTS
-router.get("/", verifyTokenAndAdmin, async(req, res) =>{
+router.get("/", async(req, res) =>{
     const qNew = req.query.new;
     const qCategory = req.query.category;
     try{
