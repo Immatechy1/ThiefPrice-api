@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auths");
 const productRoute = require("./routes/product");
-const cartRoute = require("./routes/cart")
+const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
 const cors = require("cors");
@@ -13,11 +13,11 @@ const cors = require("cors");
 dotenv.config();
 
 mongoose
-    .connect(process.env.MONGO_URL)
-    .then(() => console.log("DB Connection Successfull!"))
-    .catch((err) => {
-        console.log(err);
-    });
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log("DB Connection Successfull!"))
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use(cors());
 app.use(express.json());
@@ -28,9 +28,6 @@ app.use("/api/cart", cartRoute);
 app.use("/api/checkout", stripeRoute);
 app.use("/api/order", orderRoute);
 
-
 app.listen(process.env.PORT || 5000, () => {
-    console.log("Backend server is running!");
+  console.log("Backend server is running!");
 });
-
-
